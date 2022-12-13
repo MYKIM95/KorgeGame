@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+        maven { url = 'https://dl.bintray.com/korlibs/korlibs' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+        maven { url = 'https://dl.bintray.com/korlibs/korlibs' }
+    }
+}
+
+rootProject.name = "korgeGame"
+include ':app'
