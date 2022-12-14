@@ -3,27 +3,18 @@ package com.lok.dev.korgegame
 import android.util.Log
 import com.soywiz.klock.seconds
 import com.soywiz.korge.Korge
-import com.soywiz.korge.animate.animate
-import com.soywiz.korge.input.onClick
 import com.soywiz.korge.particle.particleEmitter
 import com.soywiz.korge.particle.readParticleEmitter
-import com.soywiz.korge.resources.resourceBitmap
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korge.scene.sceneContainer
 import com.soywiz.korge.time.delay
-import com.soywiz.korge.tween.get
-import com.soywiz.korge.tween.tween
-import com.soywiz.korge.view.*
+import com.soywiz.korge.view.SContainer
+import com.soywiz.korge.view.position
 import com.soywiz.korim.color.Colors
-import com.soywiz.korim.format.readBitmap
-import com.soywiz.korio.async.launchImmediately
 import com.soywiz.korio.file.std.resourcesVfs
-import com.soywiz.korio.resources.ResourcesContainer
-import com.soywiz.korma.geom.Angle
-import com.soywiz.korma.geom.degrees
-import com.soywiz.korma.interpolation.Easing
+import com.soywiz.korma.geom.Point
 
-suspend fun main() = Korge(width = 512, height = 512, bgcolor = Colors["#2b2b2b"]) {
+suspend fun main() = Korge(width = 1080, height = 1980, bgcolor = Colors["#2b2b2b"]) {
     val sceneContainer = sceneContainer()
 
     sceneContainer.changeTo({ MyScene() })
@@ -37,10 +28,12 @@ class MyScene : Scene() {
 
     override suspend fun SContainer.sceneMain() {
         Log.d("123123123", "MyScene() Main")
-        val emitter = resourcesVfs["game-res/carrot.pex"].readParticleEmitter()
+        val emitter = resourcesVfs["game-res/fire.pex"].readParticleEmitter()
+
+        emitter.gravity = Point(20.0, 20.0)
         //val emitter = resourcesVfs["particle/particle.pex"].readParticleEmitter()
         //val emitter = resourcesVfs["particle/1/particle.pex"].readParticleEmitter()
-        val particlesView = particleEmitter(emitter, time = 4.seconds).position(views.virtualWidth * 0.5, views.virtualHeight * 0.5)
+        val particlesView = particleEmitter(emitter, time = 100.seconds).position(views.virtualWidth * 0.5, -views.virtualHeight * 0.5)
 
         delay(10.seconds)
 
