@@ -14,8 +14,6 @@ class TestFragment : Fragment() {
 
     private lateinit var binding : FragmentTestBinding
 
-    private lateinit var gameWindow : AndroidGameWindowNoActivity
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,13 +26,11 @@ class TestFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        binding.testGameView.loadModule(CustomModule(width = 100, height = 100, callback = {
+        binding.testGameView.loadModule(CustomModule(width = 2000, height = 2000, callback = {
             Log.d("123123123", "Callback from android app")
         }))
 
-        /*gameWindow = AndroidGameWindowNoActivity(
-
-        )*/
+        binding.testGameView
 
     }
 

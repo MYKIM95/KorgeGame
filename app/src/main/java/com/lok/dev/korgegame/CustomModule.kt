@@ -14,8 +14,8 @@ class CustomModule(
 ) : Module() {
 
     companion object {
-        const val DEFAULT_WIDTH = 1920
-        const val DEFAULT_HEIGHT = 1080
+        const val DEFAULT_WIDTH = 2000
+        const val DEFAULT_HEIGHT = 2000
     }
 
     override val size : SizeInt
