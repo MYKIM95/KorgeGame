@@ -1,36 +1,27 @@
-package com.lok.dev.korgegame
+package com.lok.dev.korgegame.scene
 
 import android.util.Log
 import com.soywiz.klock.seconds
 import com.soywiz.korge.Korge
 import com.soywiz.korge.animate.*
-import com.soywiz.korge.input.SingleTouchHandler
-import com.soywiz.korge.input.mouse
 import com.soywiz.korge.input.singleTouch
 import com.soywiz.korge.internal.KorgeInternal
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korge.scene.delay
-import com.soywiz.korge.ui.korui.koruiComponent
 import com.soywiz.korge.ui.uiButton
 import com.soywiz.korge.view.*
-import com.soywiz.korge.view.filter.filter
-import com.soywiz.korge.view.filter.removeFilter
 import com.soywiz.korim.color.Colors
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korim.format.readBitmapSlice
-import com.soywiz.korio.async.launchImmediately
 import com.soywiz.korio.file.std.resourcesVfs
 import com.soywiz.korma.geom.Point
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 
-class SceneLifeCycle : Scene() {
-
+class SceneDraw : Scene() {
 
     override fun createSceneView(width: Double, height: Double): SContainer {
 
@@ -170,7 +161,7 @@ class SceneLifeCycle : Scene() {
                             }
 
                             imageCnt += 1
-                            delay(0.05.seconds)
+                            delay(0.01.seconds)
                         }
 
                     }
@@ -209,7 +200,7 @@ class SceneLifeCycle : Scene() {
                                     }
                                 }
                             imageCnt += 1
-                            delay(0.05.seconds)
+                            delay(0.01.seconds)
                         }
                     }
                     backPoint.add(0)

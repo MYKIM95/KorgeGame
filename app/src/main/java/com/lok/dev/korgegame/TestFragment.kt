@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lok.dev.korgegame.databinding.FragmentTestBinding
-import com.soywiz.korge.android.KorgeAndroidView
-import com.soywiz.korgw.AndroidGameWindowNoActivity
+import com.lok.dev.korgegame.scene.SceneCatDog
+import com.lok.dev.korgegame.scene.SceneDraw
 
 class TestFragment : Fragment() {
 
@@ -26,11 +26,19 @@ class TestFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        binding.testGameView.loadModule(CustomModule(width = 2000, height = 2000, callback = {
-            Log.d("123123123", "Callback from android app")
-        }))
+        when(arguments?.getString("type") ?: "draw") {
+            "draw" -> {
+                binding.testGameView.loadModule(CustomModule(width = 2000, height = 2000, kClass = SceneDraw::class, callback = {
+                    Log.d("123123123", "Callback from android app")
+                }))
+            }
+            "catDog" -> {
+                binding.testGameView.loadModule(CustomModule(width = 2000, height = 2000, kClass = SceneCatDog::class, callback = {
+                    Log.d("123123123", "Callback from android app")
+                }))
+            }
 
-        binding.testGameView
+        }
 
     }
 
