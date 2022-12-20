@@ -1,6 +1,7 @@
 package com.lok.dev.korgegame
 
 import com.lok.dev.korgegame.scene.SceneCatDog
+import com.lok.dev.korgegame.scene.SceneCatDogStart
 import com.lok.dev.korgegame.scene.SceneDraw
 import com.soywiz.korge.scene.Module
 import com.soywiz.korge.scene.Scene
@@ -33,8 +34,8 @@ class CustomModule(
             SceneDraw::class -> {
                 mapPrototype { SceneDraw() }
             }
-            SceneCatDog::class -> {
-                mapPrototype { SceneCatDog() }
+            SceneCatDogStart::class -> {
+                mapPrototype { SceneCatDogStart() }
             }
             else -> {
                 mapPrototype { SceneDraw() }

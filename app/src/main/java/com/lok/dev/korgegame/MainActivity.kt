@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var korgeAndroidView : KorgeAndroidView
 
     private var testFragment: TestFragment? = null
+    private var gameFragment: GameFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,25 +32,32 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.addCatDog.setOnClickListener {
-            testFragment = TestFragment().apply {
+            gameFragment = GameFragment().apply {
                 arguments = bundleOf("type" to "catDog")
             }
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.testContainer, testFragment!!)
+            transaction.add(R.id.testContainer, gameFragment!!)
             transaction.commitAllowingStateLoss()
         }
 
     }
 
+    // todo 수정 필요
     override fun onBackPressed() {
         if(testFragment != null) {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.remove(testFragment!!)
             transaction.commitAllowingStateLoss()
             testFragment = null
-        }else {
+        } else if(gameFragment != null){
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.remove(gameFragment!!)
+            transaction.commitAllowingStateLoss()
+            gameFragment = null
+        } else {
             finish()
         }
+
     }
 
 }
